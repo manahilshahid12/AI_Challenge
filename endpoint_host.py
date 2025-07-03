@@ -4,18 +4,14 @@ import joblib
 import pandas as pd
 import numpy as np
 import datetime
-import os 
+import os
 
 app = Flask(__name__)
 
 # Load the trained model
-model = joblib.load(
-    r"C:\Users\manah\OneDrive\Desktop\dps-challenge\AI_Challenge-1\model\rf_model.pkl"
-)
+model = joblib.load(r".\model\rf_model.pkl")
 # Load the dataset to calculate lag/rolling values
-df = pd.read_csv(
-    r"C:\Users\manah\Downloads\monatszahlen2505_verkehrsunfaelle_06_06_25.csv"
-)
+df = pd.read_csv(r"monatszahlen2505_verkehrsunfaelle_06_06_25.csv")
 df = df[
     (df["MONATSZAHL"] == "Alkoholunfälle")
     & (df["AUSPRAEGUNG"] == "insgesamt")
