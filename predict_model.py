@@ -103,5 +103,5 @@ if __name__ == "__main__":
         year=2021,
         month=1,
         model_path="model/rf_model.pkl",
-        data_path=r"C:\Users\manah\Downloads\monatszahlen2505_verkehrsunfaelle_06_06_25.csv",
+        data_path=r"C:\Users\manah\OneDrive\Desktop\dps-challenge\AI_Challenge-1\monatszahlen2505_verkehrsunfaelle_06_06_25.csv",
     )
