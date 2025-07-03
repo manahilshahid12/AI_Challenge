@@ -35,7 +35,8 @@ df.set_index("date", inplace=True)
 # numeric time index for progression
 df["time_idx"] = np.arange(len(df))
 
-# Adding cyclic features to timeseries data to capture the cyclic trend
+# adding cyclic features to timeseries data to capture the cyclic trend
+# tried to enhance regressor using some of the functionalities of ARIMA
 df["month_sin"] = np.sin(2 * np.pi * df["MONAT"] / 12)
 df["month_cos"] = np.cos(2 * np.pi * df["MONAT"] / 12)
 
