@@ -12,7 +12,7 @@ import os
 
 # Load and filter dataset as per instructed for year, category and type of accidents
 df = pd.read_csv(
-    r"C:\Users\manah\Downloads\monatszahlen2505_verkehrsunfaelle_06_06_25.csv"
+    r"C:\Users\manah\OneDrive\Desktop\dps-challenge\AI_Challenge-1\monatszahlen2505_verkehrsunfaelle_06_06_25.csv"
 )
 df = df[
     (df["JAHR"] <= 2020)
