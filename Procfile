@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn endpoint_host:app
