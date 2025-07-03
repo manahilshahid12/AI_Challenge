@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 
 # Load the trained model
-model = joblib.load(r".\model\rf_model.pkl")
+model = joblib.load(r"./model/rf_model.pkl")
 # Load the dataset to calculate lag/rolling values
 df = pd.read_csv(r"monatszahlen2505_verkehrsunfaelle_06_06_25.csv")
 df = df[
