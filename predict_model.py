@@ -60,3 +60,48 @@ def predict_value(category, value_type, year, month, model_path, data_path):
     except Exception as e:
         print(f"Insufficient data for rolling features: {e}")
         return
+    # Time index
+    time_idx = len(df)
+
+    # Create feature vector
+    X_pred = np.array(
+        [[time_idx, month_sin, month_cos] + lag_values + [roll_3, roll_6]]
+    )
+
+    # Predict
+    pred_log = model.predict(X_pred)[0]
+    pred = np.expm1(pred_log)
+    # print(
+    #   f"\n Predicted number of alcohol-related accidents for {year}-{str(month).zfill(2)}: {pred:.2f}"
+    # )
+    print(
+        f"\n Category: Alkoholunfälle, \n Type: Insgesamt, \n Year: 2021, \n Month: 01",
+        f"\n Value= {pred:.2f}",
+    )
+
+    # Compare with actual values for year 2021.01.01
+    if target_date in df.index:
+        actual = df.loc[target_date, "WERT"]
+        error = abs(actual - pred)
+        print(f" Actual value: {actual}")
+        print(f" Absolute error: {error:.2f}")
+    else:
+        print("Actual value not available in dataset.")
+
+
+# Forecasting Values for
+"""''
+Category: 'Alkoholunfälle'
+Type: 'insgesamt
+Year: '2021'
+Month: '01'
+"""
+if __name__ == "__main__":
+    predict_value(
+        category="Alkoholunfälle",
+        value_type="insgesamt",
+        year=2021,
+        month=1,
+        model_path="model/rf_model.pkl",
+        data_path=r"C:\Users\manah\Downloads\monatszahlen2505_verkehrsunfaelle_06_06_25.csv",
+    )
